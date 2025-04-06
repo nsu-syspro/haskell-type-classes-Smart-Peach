@@ -42,7 +42,7 @@ len (Stack s) = length s
 --
 evalIExpr :: IExpr -> Integer
 evalIExpr expr = case expr of
-   Lit n -> n
+   Lit n   -> n
    Add l r -> evalIExpr l + evalIExpr r
    Mul l r -> evalIExpr l * evalIExpr r 
 
@@ -60,7 +60,7 @@ polka (Just stack) e
         (Just x1, Just x2) -> case e of
                                 "+" -> Just(push (Add x1 x2) stack2)
                                 "*" -> Just(push (Mul x1 x2) stack2)
-                                _ -> Nothing
+                                _   -> Nothing
         _ -> Nothing
 
 -- * Parsing
